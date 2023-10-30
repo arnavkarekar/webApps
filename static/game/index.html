@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  <title>5x5 Nonogram</title>
+  <link rel="stylesheet" type="text/css" href="static/game/styles.css">
+</head>
+<body>
+  <div class="title">
+    Nonogram
+  </div>
+  <div id="outer-container">
+    <div id="top-numbers"></div>
+    <div id="side-numbers"></div>
+    <div id="grid-container"></div>
+  </div>
+  <div class="btn">
+    <button onclick="refreshNonogram()">New</button>
+    <button onclick="restartNonogram()">Restart</button>
+    <button onclick="solveNonogram()">Solve</button>
+  </div>
+  <script src="static/game/script.js"></script>
+</body>
+</html>

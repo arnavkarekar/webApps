@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,400&family=Playfair+Display:wght@400;900&display=swap');
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* ... rest of your styles ... */
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,400&family=Playfair+Display:wght@400;900&display=swap');
+/* body{
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+} */
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+
+.page-wrapper {
+    background-color: black;
+}
+
+/* Header */
+#zen-intro {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: url("images/water.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 0;
+}
+
+#zen-intro h1 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 100px;
+    margin-bottom: 10px;
+    padding-top: 275px;
+}
+
+#zen-intro h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 400px;
+}
+
+#zen-summary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 150px;
+}
+
+#zen-preamble {
+    display: block;
+    flex-direction: column;
+    background-color: black;
+    width: 95%;
+    padding-left: 5%;
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+
+#zen-summary p {
+    text-align: center;
+    max-width: 600px;  
+} 
+#zen-preamble h3 {
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+    font-size: 50px;
+    text-transform: uppercase;
+    width: 40%;
+}
+
+#zen-summary a, #zen-preamble p {
+    display: flex; /* Hide the links and extra text */
+}
+#zen-preamble p{
+    width: 45%;
+    font-size: 25px;
+}
+
+#zen-preamble p abbr{
+    display: none;
+}
+/* #zen-preamble img {
+    float: left;
+    height: 450px;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.image1 {
+    margin-left: 950px;
+    margin-top: -400px;
+}
+
+.image2 {
+    margin-left: 1450px;
+    margin-top: -300px;
+}
+
+.image3 {
+    margin-left: 1200px;
+    margin-top: -600px;
+} */
+
+
+/* Main Content */
+#zen-supporting {
+    display: block;
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+    background-color: black;
+    color: white;
+    min-height: 1000px;
+    width: 100%;
+}
+
+#zen-supporting > div {
+    background-color: #0d0d0d;
+    color: rgb(255, 255, 255);
+    border: solid rgb(106, 106, 106);
+    border-width: 0.5px;
+    width: 90%;
+    border-radius: 20px;
+    margin: 50px;
+    margin-left: 5%;
+    max-height: 220px; /* Initial max-height */
+    overflow: hidden; /* Hide overflow content */
+    transition: max-height 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Transition on max-height */
+}
+
+#zen-supporting h3 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.main-supporting p {
+    display: none;
+    top: 100%;
+    left: 0;
+    width: 90%;
+    color: white;
+    margin: 5%;
+    margin-top: 0;
+    font-size: 300px;
+    font-family: 'DM Sans', sans-serif;
+    opacity: 0;
+    vertical-align: middle;
+}
+
+#zen-supporting {
+    display: block;
+    margin-top: 15px;
+    position: relative;
+    text-align: center;
+    background-color: black;
+    color: white;
+    min-height: 1000px;
+    width: 100%;
+}
+
+#zen-supporting > div {
+    background-color: #0d0d0d;
+    color: rgb(255, 255, 255);
+    border: solid rgb(106, 106, 106);
+    border-width: 0.5px;
+    width: 90%;
+    border-radius: 20px;
+    margin: 50px;
+    margin-left: 5%;
+    max-height: 220px; /* Initial max-height for collapsed state */
+    overflow: hidden; /* Hide overflow content */
+    transition: max-height 0.5s ease-in-out; /* Transition on max-height */
+}
+
+#zen-supporting h3 {
+    font-size: 4.5em;
+    margin-bottom: 50px;
+}
+
+#zen-supporting > div p {
+    font-size: 30px;
+}
+
+#zen-supporting > div p a{
+    color: white;
+}
+
+#zen-supporting > div p a:hover{
+    color: rgb(115, 115, 115);
+    transition: .1s;
+}
+
+#zen-supporting > div:hover {
+    max-height: 1000px; /* Large max-height for expanded state on hover */
+}
+
+/* Main Content */
+#zen-supporting > div {
+    /* ... (rest of your styles) ... */
+    cursor: pointer; /* Indicate that the box is clickable */
+}
+
+#zen-supporting > div:hover {
+    max-height: 1500px; /* Expanded height on hover */
+    background-color: #1a1a1a; /* Change background color on hover for effect */
+    transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+.main-supporting p {
+    /* ... (rest of your styles) ... */
+    display: block; /* Display the content */
+    opacity: 1; /* Make it fully visible */
+    font-size: 16px; /* Adjust font size to a readable size */
+    transition: opacity 0.3s ease; /* Transition on opacity */
+}
+
+aside {
+    /* Resetting any potential default styles */
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-image: url(images/jelly3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Any other styles you want to apply */
+}
+
+aside a {
+    color: white;
+}
+
+.design-selection {
+    padding-left: 100px;
+    padding-right: 100px;
+    height: 2000px;
+}
+
+.design-selection nav ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 2 columns of equal width */
+    grid-template-rows: repeat(2, auto);   /* Creates 4 rows based on content size */
+    gap: 100px; /* Optional: Spacing between grid items */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    text-align: center;
+    font-family:'Times New Roman';
+}
+.design-selection nav ul .design-name{
+    font-size: 35px;
+    text-decoration: none;
+    display: block;
+    font-weight: 1000;
+    margin-top: 300px;
+}
+.design-selection nav ul .designer-name{
+    margin-top: 20px;
+    font-size: 25px;
+    text-decoration: none;
+    display: block;
+}
+
+.design-selection nav ul .design-name:hover{
+    color: rgb(196, 190, 255);
+    transition: .3;
+}
+.design-selection nav ul .designer-name:hover{
+    color: rgb(196, 190, 255);
+    transition: .3;
+}
+
+
+body, .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+}
+
+.page-wrapper {
+    flex: 1; /* This will make the main content grow to take up all available space */
+}
+
+
+.page-wrapper {
+    min-height: 100%; /* Ensure the wrapper takes up the full height of the viewport */
+}
+
+
+.page-wrapper {
+    position: relative; /* Set a relative positioning context for the tabs */
+}
+
+.zen-resources {
+    position: absolute; /* Position the tabs container absolutely */
+    top: 0; /* Stick it to the top */
+    width: 100%; /* Make it span the full width of the page */
+    background-color: none; /* Optional: set a background color for visibility */
+    z-index: 10; /* Ensure it stays on top of other content */
+    padding-top: 25px;
+}
+
+.zen-resources ul {
+    display: flex; /* Display the list items in a row */
+    justify-content: space-around; /* Distribute the items evenly */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.zen-resources li a {
+    color: white; /* Set the text color */
+    padding: 10px 20px; /* Add some padding for aesthetics */
+    text-decoration: none; /* Remove underline */
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: bolder;
+    transition-duration: .2s;
+    text-decoration: none;
+}
+
+.zen-resources li a:hover {
+    /* text-decoration: underline; */
+    filter: drop-shadow(0px 4px 3px black);
+    transition-duration: .2s;
+    
+}
+
+#zen-intro {
+    padding-top: 0;
+}
+
+.zen-resources h3 {
+    display: none;
+}
+
+footer {
+    display: absolute;
+    bottom: 0;
+    min-height: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+footer a {
+    display: absolute;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin:90px;
+    bottom: 0;
+}
+.design-archives{
+    display: none;
+}
+
+footer a:hover {
+    color: #8c8c8c;
+    transition: .1s;
+}
+
+footer a {
+    color: white;
+    transition: .1s;
+}
+
+#zen-summary {
+    display: none;
+}
+
+
+
+#zen-preamble::before {
+    content: "";
+    display: block;
+    background-image: url('images/coral.jpg');
+    background-repeat: no-repeat;
+    background-size: 300px 450px;
+    height: 450px;
+    width: 300px;
+    position: absolute;
+    margin-left: 1200px;
+    margin-top: 0;
+    border-radius: 20px;
+}
+
+#zen-preamble::after {
+    content: "";
+    display: block;
+    background-image: url('images/fish.jpg');
+    background-repeat: no-repeat;
+    background-size: 300px 450px;
+    height: 450px;
+    width: 300px;
+    position: absolute;
+    margin-left: 1450px;
+    margin-top: -370px;
+    border-radius: 20px;
+}
+.intro::before {
+    content: "";
+    display: block;
+    background-image: url('images/jelly2.jpg');
+    background-repeat: no-repeat;
+    background-size: 300px 450px;
+    height: 450px;
+    width: 300px;
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 1600px;
+    border-radius: 20px;
+    z-index: 1; /* Ensure it's displayed above other content */
+}
+
+
+

@@ -1,0 +1,123 @@
+body {
+    background-color: brown;
+}
+
+.title {
+    margin-left: 300px;
+    margin-top: 0px;
+    padding-top: 0;
+    font-size: 500px;
+    font-family: cursive;
+    color: aqua;
+}
+
+p.epic {
+    font-size: 200px;
+    font-family: 'Courier New', Courier, monospace;
+    border-style: dotted;
+    border-color: green;
+    border-bottom-right-radius: 0;
+    transform: rotate(-15deg);
+    background-color: pink;
+}
+
+.turtles {
+    float: right;
+    width: 30%;
+    color: beige;
+    font-size: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 10px dashed yellow;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.epics {
+    float: left;
+    width: 70%;
+}
+
+img.shark {
+    width: 700px;
+    height: 300px;
+    border-bottom-left-radius: 20px;
+    border-color: green;
+    border-width: 10px;
+    border-style: solid;
+    box-shadow: 0 0 50px cyan, 0 0 100px magenta;
+}
+
+.bite {
+    color: chartreuse;
+    font-size: 150px;
+    text-shadow: 5px 5px 5px green;
+}
+
+table {
+    float: left;
+    width: 50%;
+    color: antiquewhite;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+    font-size: 50px;
+    border: 20px dashed lime;
+    background: linear-gradient(45deg, violet, yellow, cyan);
+}
+
+table, th, td {
+    border: 50px solid black;
+}
+
+.content {
+    padding-top: 300px;
+    float: right;
+    width: 50%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-align: justify;
+    text-align-last: center;
+    transform: skewX(10deg);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.teeth {
+    opacity: 0.5;
+    animation: rotateTeeth 5s infinite linear;
+}
+
+@keyframes rotateTeeth {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* Existing styles */
+
+/* Adding styles for the "Sinking your teeth into it" paragraph */
+.teeth-text {
+    float: left;
+    width: 50%;
+    color: magenta;
+    font-size: 120px;
+    text-shadow: 5px 5px 5px blue;
+}
+
+/* Adding styles for the "Sharktastic" paragraph */
+.sharktastic-text {
+    float: middle;
+    width: 50%;
+    color: orange;
+    font-size: 180px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: lime;
+    text-decoration-style: wavy;
+}
+
