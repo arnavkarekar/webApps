@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Would You Rather</title>
+    <link rel="stylesheet" type="text/css" href="../../static/survey/styles.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Would You Rather?</h1>
+        <form action="/vote" class="options">
+            <button  type="submit" class="option red" name="answer" value="A">
+                <div class="percent"> </div>
+                <div class="question">Have the power to change the past</div>
+                <img src="../../static/survey/images/time_machine.jpg" alt="time machine">
+            </button>
+            <button type="submit" class="option blue" name="answer" value="B">
+                <div class="percent"> </div>
+                <div class="question">Have the power to see into the future</div>
+                <img src="../../static/survey/images/ball.jpg" alt="fortune teller ball">
+            </button>
+        </form>
+    </div>
+    <script src="../../static/survey/script.js"></script>
+</body>
+</html>

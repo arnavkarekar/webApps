@@ -1,10 +1,58 @@
-
 # A very simple Flask Hello World app for you to get started with...
 from flask import *
 from collections import Counter
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+app.secret_key = 'secret_key'
+
+questions = {
+    "q1":['Know the exact date of your death', 'Know how you will die without knowing when'],
+    "q2":['Be incredibly wealthy but hated by everyone', 'Be poor but deeply loved and respected by all who know you?'],
+    "q3":['Have the power to change the past', 'Have the power to see into the future'],
+    "q4":['Have the ability to fly but only at walking speed', 'Have super speed but only while crawling'],
+    "q5":['Have the ability to heal any physical ailment instantly', 'Have the power to erase any bad memory from your mind']
+}
+
+# Initialize Firebase Admin
+cred = credentials.Certificate('creds.json')
+firebase_admin.initialize_app(cred)
+db = firestore.client()
+ref = db.collection("questions").document("1")
+
+@app.route('/survey/', defaults={'question': 1})
+@app.route('/survey/<question>')
+def survey(question):
+    if request.cookies.get('vote_id'):
+        return redirect('/results')
+    return render_template("survey/index.html")
+
+# @app.route('/vote')
+# def vote():
+#     answer = request.args["answer"]
+#     doc = ref.get().to_dict()
+#     doc[f'votes{answer}'] += 1
+#     ref.update(doc)
+#     return redirect('/results')
+
+@app.route('/vote')
+def vote():
+    if request.cookies.get('vote_id'):
+        return redirect('/results')
+    answer = request.args["answer"]
+    if answer:
+        doc = ref.get().to_dict()
+        doc[f'votes{answer}'] += 1
+        ref.update(doc)
+        resp = make_response(redirect('/results'))
+        resp.set_cookie('vote_id', answer)
+        return resp
+    return redirect('/survey')
+
+@app.route('/results')
+def results():
+    return render_template("survey/results.html", numA = ref.get().to_dict()['votesA'], numB = ref.get().to_dict()['votesB'])
 
 @app.route('/')
 def home():
@@ -71,3 +119,5 @@ def quiz():
 def game():
     return send_from_directory(app.static_folder, path="game/index.html")
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)

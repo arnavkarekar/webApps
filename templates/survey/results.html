@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" type="text/css" href="../../static/survey/styles.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Would You Rather?</h1>
+        <form class="options">
+            <div class="option red" name="answer" value="1">
+                <div class="percent">{{ numA }} votes</div>
+                <div class="question">Have the power to change the past</div>
+                <img src="../../static/survey/images/time_machine.jpg" alt="square">
+            </div>
+            <div class="option blue" name="answer" value="2">
+                <div class="percent">{{ numB }} votes</div>
+                <div class="question">Have the power to see into the future</div>
+                <img src="../../static/survey/images/ball.jpg" alt="square">
+            </div>
+        </form>
+    </div>
+    <script>
+        window.onload = function() {
+        const redElement = document.querySelector(".red");
+        const blueElement = document.querySelector(".blue");
+
+        // Set the initial flex values
+        redElement.style.flex = "{{ numA }}";
+        blueElement.style.flex = "{{ numB }}";
+
+        // Add a CSS transition for a smooth change
+        redElement.style.transition = "flex 0.5s ease";
+        blueElement.style.transition = "flex 0.5s ease";
+        };
+    </script>
+</body>
+</html>
