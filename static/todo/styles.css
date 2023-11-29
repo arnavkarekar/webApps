@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+img {
+    display: none;
+    height: 16px;
+}
+
+label:hover > img {
+    display: inline;
+}
+header {
+    background-color: #0BB697;
+    margin: 0;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    padding-top: 65px;
+    padding-bottom: 65px;
+    font-size: 35px;
+}
+h1 {
+    margin: 0;
+}
+.list {
+    display: inline-block;
+    width: 50%;
+    align-self: center;
+    margin-left: 25%;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+hr {
+    margin: 0;
+}
+/* Hide the default checkbox */
+h2 {
+    margin: 0;
+    margin-bottom: 15px;
+}
+#circularCheckbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Create a circular box */
+#circularCheckbox:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Makes it circular */
+    border: 1px solid #000; /* Border color */
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Change style when checked */
+#circularCheckbox:checked:before {
+    border: 1px solid #5E17EB;
+    background-color: #5E17EB; /* Background color when checked */
+}
+.completed {
+    margin-top: 120px; 
+}
+li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#task_name {
+    border: none;
+    font-size: 17px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 21px;
+    margin-left: 10px;
+}
+.plus {
+    color: #5E17EB;
+    font-weight: bolder;
+    font-size: 45px;
+    margin-right: 6px;
+}
+label {
+    margin-left: 10px;
+}
+.cage {
+    height: 15px;
+    margin-left: 10px;
+}
+#deadline {
+    border: none;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    margin-left: 10px;
+    padding-right: 0;
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}

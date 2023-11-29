@@ -36,6 +36,95 @@ def survey(question):
 #     ref.update(doc)
 #     return redirect('/results')
 
+@app.route('/updateDueDate/<item_id>', methods=['GET'])
+def update_due_date(item_id):
+    new_date_str = request.args.get('newDate')
+
+    if new_date_str:
+        # Convert the string date to a datetime object
+        try:
+            new_date = datetime.strptime(new_date_str, '%Y-%m-%d')
+        except ValueError:
+            # Handle incorrect date format
+            return "Invalid date format. Please use YYYY-MM-DD.", 400
+
+        # Update the document in Firestore
+        try:
+            db.collection('todo_list').document(item_id).update({
+                'deadline': new_date_str
+            })
+            return "Due date updated successfully", 200
+        except Exception as e:
+            # Handle any errors that occur during update
+            return f"An error occurred: {str(e)}", 500
+    else:
+        return "Missing new date parameter", 400
+
+@app.route('/remove/<doc_id>')
+def remove(doc_id):
+    docref = db.collection('todo_list').document(doc_id)
+    doc = docref.get()
+    if doc.exists:
+        docref.delete()
+    return ""
+
+@app.route('/todo')
+def todo():
+    return render_template('todo/list.html')
+
+@app.route('/check/<doc_id>', methods=['GET'])
+def check_id(doc_id):
+    doc_ref = db.collection('votes').document(doc_id)
+    doc = doc_ref.get()
+    if doc.exists:
+        return jsonify({"exists": "yes"})
+    else:
+        return jsonify({"exists": "no"})
+
+@app.route('/user_info')
+def user_info():
+    out=f"<p>ip:{request.remote_addr}</p>"
+    for key,value in request.headers:
+        out+=f"<p>{key}:{value}</p>"
+    return out
+
+@app.route('/list')
+def todolist():
+    docs = db.collection('todo_list').stream()
+    output=[]
+    for doc in docs:
+        doc_dict=doc.to_dict()
+        doc_dict["_id"]=doc.id
+        output.append(doc_dict)
+ 
+    return output
+    
+@app.route('/toggle/<doc_id>')
+def toggle(doc_id):
+    docref = db.collection('todo_list').document(doc_id)
+    doc = docref.get()
+    if doc.exists:
+        is_complete = doc.to_dict().get('is_complete', False)
+        docref.update({"is_complete": not is_complete})
+    return ""
+
+
+@app.route('/add', methods=['GET'])
+def add_item():
+    if "item" in request.args:
+        item = request.args["item"]
+        current_date = datetime.now()
+        # Format the date as 'YYYY-MM-DD'
+        formatted_date = current_date.strftime('%Y-%m-%d')
+
+        db.collection('todo_list').add({
+            'item': item,
+            'is_complete': False,
+            'timestamp': firestore.SERVER_TIMESTAMP,
+            'deadline': formatted_date
+        })
+    return ""
+
 @app.route('/vote')
 def vote():
     if request.cookies.get('vote_id'):
@@ -49,6 +138,7 @@ def vote():
         resp.set_cookie('vote_id', answer)
         return resp
     return redirect('/survey')
+
 
 @app.route('/results')
 def results():
